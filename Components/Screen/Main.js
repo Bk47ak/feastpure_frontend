@@ -7,19 +7,23 @@ import  Ionicons from 'react-native-vector-icons/Ionicons';
 import Homescreen from '../Screen/Homescreen';
 import Profilescreen from '../Screen/Profilescreen';
 import Explorescreen from '../Screen/Explorescreen';
+import Cartscreen from '../Screen/Cartscreen';
+
 
 //screen Names
 
 const homename='Home';
 const profilename='Profile';
 const explorename='Explore';
+const cartname='Cart';
 
 const Tab =createBottomTabNavigator();
 
 
 export default function Main(){
+    const screenOption ={headerShown:false};
     return (
-        <NavigationContainer>
+
             <Tab.Navigator 
             initialRouteName={homename}
             screenOptions={({ route }) => ({
@@ -34,25 +38,31 @@ export default function Main(){
 
                 }
                 else if ( rn==explorename){
-                    iconName=focused ? 'list': 'list-outline';
+                    iconName=focused ? 'explore': 'explore-outline';
                 }
                 else if(rn==profilename){
-                    iconName=focused ? 'settings': 'settings-outline';
+                    iconName=focused ? 'person': 'person-outline';
                 }
-                    return<Ionicons name={iconName} size={size} color={color} />
+                else if (rn==cartname){
+                    iconName=focused ? 'cart': 'cart-outline';
+                }
+                
+                    
+                return<Ionicons name={iconName} size={size} color={color} />
             }
 
             })}>
             
             <Tab.Screen name={homename} component={Homescreen}/>
-            <Tab.Screen name={profilename} component={Profilescreen}/>
             <Tab.Screen name={explorename} component={Explorescreen}/>
+            <Tab.Screen name={cartname} component={Cartscreen}/>
+           <Tab.Screen name={profilename} component={Profilescreen}/>
 
             
             
             
             </Tab.Navigator>
-        </NavigationContainer>
+    
     );
 }
 

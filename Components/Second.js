@@ -2,8 +2,7 @@ import React,{ Component} from "react";
 import {TextInput,StyleSheet, View,Text,Image,SafeAreaView,Alert } from "react-native";
 import {Button,} from  "react-native-paper";
 
-  class ak extends Component{
-    render(){
+  const OTP = ({navigation}) =>{ 
       return(
         <View style={{flex:1,backgroundColor:'#2E8B57',}}>
         <View style={{backgroundColor:'#50C878',
@@ -68,8 +67,8 @@ import {Button,} from  "react-native-paper";
               borderRadius:20,
               padding:10,
             }}
-            
-            onPress={() => Alert.alert('Continue button pressed')}
+          
+            onPress={()=> navigation.navigate("Home")}
             >
             Continue
               
@@ -80,7 +79,7 @@ import {Button,} from  "react-native-paper";
           
       );
     }
-  }
+  
 
-export default ak;
+export default OTP;
 
